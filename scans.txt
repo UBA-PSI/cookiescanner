@@ -1,0 +1,73 @@
+cookiebanner> 2023-07-13 18:08:07,246: [INFO] Currently scanning website: https://google.com (pagescanner.py:84)
+cookiebanner> 2023-07-13 18:08:07,543: [INFO] Currently scanning website: https://stackoverflow.com (pagescanner.py:84)
+cookiebanner> 2023-07-13 18:08:08,663: [INFO] Currently scanning website: https://microsoft.com (pagescanner.py:84)
+cookiebanner> 2023-07-13 18:08:12,233: [INFO] Trackers are not loaded with the initial page load. (pagescanner.py:108)
+cookiebanner> 2023-07-13 18:08:12,234: [INFO] The preferred detector is: perceptive (pagescanner.py:131)
+cookiebanner> 2023-07-13 18:08:12,285: [INFO] The language of the webpage is: de (PrivacyPolicyExtractor.py:31)
+cookiebanner> 2023-07-13 18:08:12,286: [INFO] The keyowrds that classify a clickable as the one of a privacy policy are: ['datenschutz', 'datenrichtlinie', 'privatssphäre', 'datenschutzbestimmungen', 'datenschutzrichtlinie'] (PrivacyPolicyExtractor.py:32)
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: DOM.resolveNode error: No node with given id found
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: Runtime.callFunctionOn error: Invalid parameters
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+cookiebanner> 2023-07-13 18:08:12,490: [INFO] Container not reachable. Aborting detection... (bert_classifier.py:36)
+cookiebanner> 2023-07-13 18:08:13,266: [INFO] Trackers are not loaded with the initial page load. (pagescanner.py:108)
+cookiebanner> 2023-07-13 18:08:13,268: [INFO] The preferred detector is: perceptive (pagescanner.py:131)
+cookiebanner> 2023-07-13 18:08:13,333: [INFO] There is no privacy policy present. (PrivacyPolicyExtractor.py:51)
+cookiebanner> 2023-07-13 18:08:15,333: [INFO] A privacy policy is present. (PrivacyPolicyExtractor.py:45)
+cookiebanner> 2023-07-13 18:08:19,019: [INFO] The button 'Accept all cookies' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:21,541: [INFO] The button 'DE' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:30,884: [INFO] Container not reachable. Aborting detection... (bert_classifier.py:36)
+cookiebanner> 2023-07-13 18:08:31,443: [INFO] Trackers are not loaded with the initial page load. (pagescanner.py:108)
+cookiebanner> 2023-07-13 18:08:31,444: [INFO] The preferred detector is: perceptive (pagescanner.py:131)
+cookiebanner> 2023-07-13 18:08:31,527: [INFO] The language of the webpage is: de (PrivacyPolicyExtractor.py:31)
+cookiebanner> 2023-07-13 18:08:31,527: [INFO] The keyowrds that classify a clickable as the one of a privacy policy are: ['datenschutz', 'datenrichtlinie', 'privatssphäre', 'datenschutzbestimmungen', 'datenschutzrichtlinie'] (PrivacyPolicyExtractor.py:32)
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: DOM.resolveNode error: No node with given id found
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: Runtime.callFunctionOn error: Invalid parameters
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+cookiebanner> 2023-07-13 18:08:32,891: [INFO] The button 'Necessary cookies only' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:34,373: [INFO] The button 'Anmelden' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:34,571: [INFO] A privacy policy is present. (PrivacyPolicyExtractor.py:45)
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: Network.getRequestPostData error: No resource with given id was found
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+callback Network.requestWillBeSent exception
+Traceback (most recent call last):
+  File "/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py", line 152, in _handle_event_loop
+    self.event_handlers[event['method']](**event['params'])
+  File "/home/ralf/Documents/cookie-scanner/privacyscanner/scanmodules/cookiebanner/pagescanner.py", line 297, in _cb_request_will_be_sent
+    post_data = self._tab.Network.getRequestPostData(requestId=requestId)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py", line 177, in call_method
+    raise CallMethodException("calling method: %s error: %s" % (_method, result['error']['message']))
+pychrome.exceptions.CallMethodException: calling method: Network.getRequestPostData error: No resource with given id was found
+cookiebanner> 2023-07-13 18:08:40,960: [INFO] The button 'Annehmen' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:45,369: [INFO] The button 'Customize settings' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:46,789: [INFO] The button 'Alle ablehnen' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:08:52,794: [INFO] Page scan finished. (pagescanner.py:284)
+/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py:176: UserWarning: DOM.requestNode error: Object id doesn't reference a Node
+  warnings.warn("%s error: %s" % (_method, result['error']['message']))
+cookiebanner> 2023-07-13 18:08:59,316: [INFO] The button 'Alle akzeptieren' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:09:11,546: [INFO] The button 'Weitere Optionen' has been clicked (pagescanner.py:209)
+callback Network.requestWillBeSent exception
+Traceback (most recent call last):
+  File "/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py", line 152, in _handle_event_loop
+    self.event_handlers[event['method']](**event['params'])
+  File "/home/ralf/Documents/cookie-scanner/privacyscanner/scanmodules/cookiebanner/pagescanner.py", line 297, in _cb_request_will_be_sent
+    post_data = self._tab.Network.getRequestPostData(requestId=requestId)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ralf/Documents/cookie-scanner/pychrome/pychrome/tab.py", line 177, in call_method
+    raise CallMethodException("calling method: %s error: %s" % (_method, result['error']['message']))
+pychrome.exceptions.CallMethodException: calling method: Network.getRequestPostData error: No resource with given id was found
+cookiebanner> 2023-07-13 18:09:17,809: [INFO] Page scan finished. (pagescanner.py:284)
+cookiebanner> 2023-07-13 18:09:37,094: [INFO] The button 'Ablehnen' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:10:00,886: [INFO] The button 'Cookies verwalten' has been clicked (pagescanner.py:209)
+cookiebanner> 2023-07-13 18:10:17,745: [INFO] Page scan finished. (pagescanner.py:284)
+
+Gently asking workers to stop after their current job ...
+5 workers still alive: <None/None pid=14252> <None/None pid=14254> <None/None pid=15127> <None/None pid=15128> <None/None pid=15144>
+5 workers still alive: <None/None pid=14252> <None/None pid=14254> <None/None pid=15127> <None/None pid=15128> <None/None pid=15144>
+5 workers still alive: <None/None pid=14252> <None/None pid=14254> <None/None pid=15127> <None/None pid=15128> <None/None pid=15144>
+5 workers still alive: <None/None pid=14252> <None/None pid=14254> <None/None pid=15127> <None/None pid=15128> <None/None pid=15144>
+3 workers still alive: <None/None pid=14252> <None/None pid=14254> <None/None pid=15144>
+1 workers still alive: <None/None pid=15144>
+All workers stopped. Shutting down ...

@@ -1,0 +1,5 @@
+privacyscanner.egg-info
+__pycache__
+docs/_build
+venv/
+.idea/
