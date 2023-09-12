@@ -44,7 +44,7 @@ This guide describes the setup process for Debian Unstable, as this was the oper
 	# want to run privacyscanner from)
 	source venv/bin/activate
 #### Install Modified Pychrome Version
-		pip install pychrome/
+    pip install pychrome/
 #### Install Modified Version of Privacyscanner with the Cookiebanner Module
 	pip install -e .
 #### Copy the Config and Module Dependencies to the Home Directory
