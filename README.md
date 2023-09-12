@@ -158,7 +158,7 @@ SCAN_MODULE_OPTIONS = {
             # Randomize the user agent to mitigate triggering DDOS protection
             'random_user_agent': False,
             # Save the logger output of the scan
-			'save_logs': False,
+            'save_logs': False,
             # Wait time before any action (clicking, etc.)
             'page_load_delay': 5,
         },
