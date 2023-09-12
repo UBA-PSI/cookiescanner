@@ -2,7 +2,6 @@
 Cookiescanner is an extension of [privacyscanner](https://github.com/PrivacyScore/privacyscanner). It identifies and analyzes cookie consent notices.
 
 ## Structure (/privacyscanner/scanmodules/cookiebanner)
-* db_handling: Scripts to refill the database/scanning queue
 * detectors: Detectors for the banners
 * detectors/utils: General functions to process nodes, notices, clickables, etc. used throughout the application
 * extractors: Extract various information from the sites
