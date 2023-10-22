@@ -1,27 +1,28 @@
+import base64
 import json
 import logging
 import pychrome
 
+from privacyscanner.result import  Result
 from privacyscanner.scanmodules.cookiebanner.base import Extractor
 from privacyscanner.scanmodules.cookiebanner.detectors.utils.clickable import click_node, get_by_text
+from privacyscanner.scanmodules.cookiebanner.detectors.utils.general import sanitize_file_name, take_screenshot
 from privacyscanner.scanmodules.cookiebanner.detectors.utils.remote_object \
     import get_object_for_remote_object, get_remote_object_id_by_node_id
 from privacyscanner.scanmodules.cookiebanner.page import Page
 from privacyscanner.utils import download_file
 
-PRIVACY_WORDING_URL = "https://raw.githubusercontent.com/RUB-SysSec/we-value-your-privacy/master/privacy_wording.json"
+# PRIVACY_WORDING_URL = "https://raw.githubusercontent.com/RUB-SysSec/we-value-your-privacy/master/privacy_wording.json"
 
 
 class PrivacyPolicyExtractor(Extractor):
-    def __init__(self, page: Page, result: dict, logger: logging.Logger, options: dict):
+    def __init__(self, page: Page, result: Result, logger: logging.Logger, options: dict):
         super().__init__(page, result, logger, options)
         self.result = result
         self.logger = logger
         self.options = options
         self.page = page
         self.privacy_wording_list = None
-        document = page.tab.DOM.getDocument(depth=-1)
-        self.root_node_id = document['root']['nodeId']
 
     def extract_information(self):
         """This function extracts the privacy policy on a page given the cookie notice."""
@@ -43,6 +44,12 @@ class PrivacyPolicyExtractor(Extractor):
                 self.result['word_count'] = len(self.result['privacy_policy']['text'].split(' '))
                 searched_clickable['role'] = 'privacy policy'
                 self.logger.info('A privacy policy is present.')
+                # Take and save a screenshot of the policy page
+                file_name = f"{sanitize_file_name(text=searched_clickable['text'])}.png"
+                screenshot = take_screenshot(tab=self.page.tab, name=file_name)
+                self.result.add_file(filename=file_name, contents=screenshot["contents"])
+                screenshot["contents"] = base64.b64encode(screenshot["contents"]).decode('utf-8')
+                self.result["screenshots"]["privacy_policy"] = [screenshot]
             else:
                 self.result['privacy_policy_present'] = False
                 self.logger.info('There is no privacy policy present.')
@@ -90,6 +97,8 @@ class PrivacyPolicyExtractor(Extractor):
 
     def _extract_text_from_body(self) -> dict:
         """JS function that extracts the text as well as the HTML of a page body."""
+        document = self.page.tab.DOM.getDocument(depth=-1)
+        root_node_id = document['root']['nodeId']
         js_function = """
             function getText() {
                 elem = document.body
@@ -102,7 +111,7 @@ class PrivacyPolicyExtractor(Extractor):
             }
             """
         try:
-            remote_object_id = get_remote_object_id_by_node_id(self.page.tab, self.root_node_id)
+            remote_object_id = get_remote_object_id_by_node_id(self.page.tab, root_node_id)
             result = self.page.tab.Runtime.callFunctionOn(functionDeclaration=js_function,
                                                           objectId=remote_object_id, silent=True).get('result')
             result = get_object_for_remote_object(tab=self.page.tab, remote_object_id=result['objectId'])
@@ -121,5 +130,9 @@ class PrivacyPolicyExtractor(Extractor):
 
     @staticmethod
     def update_dependencies(options):
-        privacy_wording_list = (options['storage_path'] / 'privacy_wording.json').open('wb')
-        download_file(PRIVACY_WORDING_URL, privacy_wording_list)
+        # privacy_wording_list = (options['storage_path'] / 'privacy_wording.json').open('wb')
+        # download_file(PRIVACY_WORDING_URL, privacy_wording_list)
+        # The file matches the keywords for the country code. Since I detect the language of the website,
+        # I adapted the country code to the language code, at least for English (EN)
+        # Other changes may be required depending on the language for which you are extracting the policies.
+        return

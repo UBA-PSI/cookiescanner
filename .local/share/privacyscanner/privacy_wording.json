@@ -222,8 +222,8 @@
 		"tlds": ["ua"]
 	},
 	{
-		"country": "uk",
-		"words": ["policy", "gdpr"],
+		"country": "en",
+		"words": ["policy", "gdpr", "privacy", "data"],
 		"tlds": ["uk", "gb"]
 	}
 ]
