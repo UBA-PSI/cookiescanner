@@ -142,7 +142,7 @@ class PageScanner:
 
         if options['extract_privacy_policy']:
             # EXTRACT PRIVACY POLICY
-            policy_extractor = PrivacyPolicyExtractor(self._page, result, logger, options)
+            policy_extractor = PrivacyPolicyExtractor(self._page, self._tab, result, logger, options)
             policy_extractor.extract_information()
             result["privacy_policy_request_log"] = self._page.request_log
             result["privacy_policy_document_request_log"] = self._page.document_request_log

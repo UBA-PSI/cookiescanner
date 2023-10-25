@@ -16,12 +16,13 @@ from privacyscanner.utils import download_file
 
 
 class PrivacyPolicyExtractor(Extractor):
-    def __init__(self, page: Page, result: Result, logger: logging.Logger, options: dict):
+    def __init__(self, page: Page, _tab: pychrome.tab,  result: Result, logger: logging.Logger, options: dict):
         super().__init__(page, result, logger, options)
         self.result = result
         self.logger = logger
         self.options = options
         self.page = page
+        self._tab = _tab
         self.privacy_wording_list = None
 
     def extract_information(self):
@@ -87,8 +88,8 @@ class PrivacyPolicyExtractor(Extractor):
          It waits for three seconds and extracts the text of the page body as the privacy policy via a JS function."""
         # Fetch the clickable by text
         resulting_clickable = get_by_text(clickable_to_find=clickable, clickables=cookie_notice['clickables'])
-        # Click on page
-        click_node(self.page.tab, resulting_clickable['node_id'])
+        # Navigate instead of clicking to keep everything in the same tab
+        self._tab.Page.navigate(url=resulting_clickable["href"], _timeout=15)
         self.page.tab.wait(3)
         # Get HTML
         content = self._extract_text_from_body()
