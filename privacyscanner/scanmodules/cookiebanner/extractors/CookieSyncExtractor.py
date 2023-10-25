@@ -48,7 +48,7 @@ class CookieSyncExtractor(Extractor):
             for request in self.page.request_log:
                 if len(cookie['value']) > 10 and cookie['value'] in request['url']:
                     ext = tldextract.extract(request['url'])
-                    sync_domain = '.'.join(ext[:3])
+                    sync_domain = ext.registered_domain
                     synced_cookies.append(
                         {'cookie_value': cookie['value'], 'sync_domain': sync_domain, 'sync_request': request['url'],
                          'zxcvbn': cookie['zxcvbn']})
